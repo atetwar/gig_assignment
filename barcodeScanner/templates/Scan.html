@@ -1,0 +1,14 @@
+<h1>Scan QR Code </h1>
+<p1>{{a1}}</p1>
+<form method="POST" action="" enctype='multipart/form-data'>
+    {% csrf_token %}
+    <br>
+    {{ form.file }}
+    <br>
+    <br>
+    <input type="submit" name="submit"></input>
+    <br>
+    <h5>Output of QR</h5>
+    <p>{{qr_data}}</p>
+</form>
+
