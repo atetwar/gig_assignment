@@ -21,9 +21,9 @@ def scan_barcode(request):
 
 def handleQRCode(f):
     data = f['file']
-    path = default_storage.save('ab.png', ContentFile(data.read()))
+    path = default_storage.save('QR.png', ContentFile(data.read()))
     tmp_file = os.path.join(path)
 
-    d = cv2.QRCodeDetector()
-    val, points, straight_qrcode = d.detectAndDecode(cv2.imread(tmp_file))
+    detect = cv2.QRCodeDetector()
+    val, points, straight_qrcode = detect.detectAndDecode(cv2.imread(tmp_file))
     return val
